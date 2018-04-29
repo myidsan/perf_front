@@ -30,7 +30,7 @@ export class ResultComponent implements OnInit, AfterContentChecked, AfterViewIn
     console.log(url);
     const re = 'watch?v=';
     url = url.replace(re, 'embed/');
-    const processed_url = url + '?start=' + this.card[1].start_time + '&controls=0&autoplay=1&showinfo=0';
+    const processed_url = url + '?start=' + this.card[1].start_time + '&controls=0&autoplay=1&showinfo=0&mute=1&modestbranding=1';
     console.log(processed_url);
     return processed_url;
   }
@@ -96,17 +96,19 @@ export class ResultComponent implements OnInit, AfterContentChecked, AfterViewIn
     if (this.card !== undefined) {
       // this.result_cards.push(this.card);
       this.result_cards = this.card;
+      for (let i = 0; i < this.result_cards.length; i++) {
+        this.result_cards[i].vid_lnk = this.set_youtube_url(this.result_cards[i].vid_lnk);
+      }
       console.log(this.result_cards);
-      console.log(this.result_cards[1]);
     }
-    this.video_URL = this.set_youtube_url(this.result_cards[1].vid_lnk);
-    this.image_URL = this.result_cards[1].image_lnk;
+    // this.video_URL = this.set_youtube_url(this.result_cards[1].vid_lnk);
+    // this.image_URL = this.result_cards[1].image_lnk;
   }
 
   ngAfterViewInit() {
     // set backdrop
-    document.getElementById('backdrop').style.width = this.window_width.toString() + 'px';
-    document.getElementById('backdrop').style.height = this.window_height.toString() + 'px';
+    // document.getElementById('backdrop').style.width = this.window_width.toString() + 'px';
+    // document.getElementById('backdrop').style.height = this.window_height.toString() + 'px';
     this.showSlides(1);
   }
 
