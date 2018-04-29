@@ -1,5 +1,6 @@
 import {AfterContentChecked, AfterViewInit, Component, OnChanges, OnInit} from '@angular/core';
 import { SurveyResultService } from '../service/survery-result.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-result',
@@ -35,40 +36,35 @@ export class ResultComponent implements OnInit, AfterContentChecked, AfterViewIn
     return processed_url;
   }
 
-  // profile card carousel
-  showSlides(n?) {
-    let i;
-    const slides = document.getElementsByClassName('slides');
-    console.log(slides);
-    const dots = document.getElementsByClassName('dot');
-    if (n > slides.length) {
-      this.slideIndex = 2;
-    }
-
-    // if (n < 1) {
-    //   this.slideIndex = slides.length;
-    // }
-
-    for (i = 0; i < slides.length; i++) {
-      (slides[i] as HTMLElement).style.display = 'none';
-    }
-
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace('active', '');
-    }
-    (slides[this.slideIndex - 1] as HTMLElement).style.display = 'flex';
-    (dots[this.slideIndex - 1] as HTMLElement).classList.add('active');
-  }
-
-  show_next_card() {
-    console.log('show_next_card called');
-    this.show_button = true;
-  }
-
   test_func() {
     console.log('test_func called');
     setTimeout(function() { this.show_next_card(); }, 5000);
   }
+
+  video_full_size() {
+    $(document).ready(function(){
+      sizeTheVideo();
+      $(window).resize(function(){
+        sizeTheVideo();
+      });
+    });
+
+    function sizeTheVideo(){
+      // - 1.78 is the aspect ratio of the video
+// - This will work if your video is 1920 x 1080
+// - To find this value divide the video's native width by the height eg 1920/1080 = 1.78
+      let aspectRatio = 1.78;
+
+      let video = $('iframe');
+      let videoHeight = video.outerHeight();
+      let newWidth = videoHeight*aspectRatio;
+      let halfNewWidth = newWidth/2;
+
+      //Define the new width and centrally align the iframe
+      video.css({"width":newWidth+"px","left":"50%","margin-left":"-"+halfNewWidth+"px"});
+    }
+  }
+
 
   ngOnChanges() {
     console.log('in ngOnChanges');
@@ -109,7 +105,6 @@ export class ResultComponent implements OnInit, AfterContentChecked, AfterViewIn
     // set backdrop
     // document.getElementById('backdrop').style.width = this.window_width.toString() + 'px';
     // document.getElementById('backdrop').style.height = this.window_height.toString() + 'px';
-    this.showSlides(1);
   }
 
   ngOnInit() {

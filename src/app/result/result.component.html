@@ -15,23 +15,29 @@
 <!--</div>-->
 
 
-<div id="result_box">
-  <div class="card_box">
-    <div id="card_one" class="cards">
-      <iframe [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen></iframe>
-      <h2>{{result_cards[0].name}}</h2>
-    </div>
+<div id="container">
+  <div id="text_box">
+    <h1>hello world</h1>
   </div>
-  <div class="card_box">
-    <div id="card_two" class="cards">
-      <iframe [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen></iframe>
-      <h2>{{result_cards[2].name}}</h2>
+
+  <div id="result_box">
+    <div class="card_box">
+      <div id="card_one" class="cards">
+        <iframe class="frame" [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen scrolling="no"></iframe>
+        <h2>{{result_cards[0].name}}</h2>
+      </div>
     </div>
-  </div>
-  <div class="card_box">
-    <div id="card_three" class="cards">
-      <iframe [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen></iframe>
-      <h2>{{result_cards[2].name}}</h2>
+    <div class="card_box">
+      <div id="card_two" class="cards">
+        <iframe class="frame" [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen scrolling="no"></iframe>
+        <h2>{{result_cards[2].name}}</h2>
+      </div>
+    </div>
+    <div class="card_box">
+      <div id="card_three" class="cards">
+        <iframe class="frame" [src] = "result_cards[2].vid_lnk | safe" frameborder="0" allowfullscreen scrolling="no"></iframe>
+        <h2>{{result_cards[2].name}}</h2>
+      </div>
     </div>
   </div>
 </div>

@@ -71,14 +71,27 @@
 
 
 /* NEW css */
+#container {
+
+}
+
+#text_box {
+  margin: auto;
+  color: white;
+  z-index: 100;
+  position: fixed;
+}
+
 #result_box {
   display: flex;
   flex-direction: row;
+  width: 100vw;
+  /*position: absolute;*/
 }
 
 .card_box {
-  width: 33%;
-  height: 100%;
+  width: 50%;
+  height: 99.99%;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -88,17 +101,33 @@
   z-index: 1;
 }
 
-iframe {
-  /*height: auto;*/
-  /*left: auto;*/
-  max-width: none;
-  min-height: 100%;
-  min-width: 100%;
-  /*right: auto;*/
+/*iframe {*/
+  /*!*height: auto;*!*/
+  /*!*left: auto;*!*/
+  /*max-width: 100%;*/
+  /*min-height: 50%;*/
+
+  /*!* to fill the entire screen uncomment min-width and change width to 100% *!*/
+  /*!* that would still cause the third video to be max size when scrolled*!*/
+  /*!*min-width: 100%;*!*/
+  /*width: 50%;*/
+
+  /*!*right: auto;*!*/
+  /*position: absolute;*/
+  /*top: 0;*/
+
+  /*z-index: 1;*/
+  /*overflow: hidden;*/
+/*}*/
+
+
+.frame {
+  height: 100%;
   position: absolute;
-  top: 0;
-  /*width: auto;*/
-  z-index: 1;
 }
 
-
+.cards {
+  position: absolute;
+  height: 90%;
+  width: 33%;
+}
